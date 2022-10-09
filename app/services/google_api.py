@@ -43,7 +43,7 @@ async def spreadsheets_update_value(
         ['Топ проектов по скорости закрытия'],
         ['Название проекта', 'Время сбора', 'Описание']]
     for res in projects:
-        new_row = [res['name'], res['delta'], res['description']]
+        new_row = [res['name'], str(res['delta']), res['description']]
         table_values.append(new_row)
     update_body = {'majorDimension': 'ROWS', 'values': table_values}
     await wrapper_services.as_service_account(
